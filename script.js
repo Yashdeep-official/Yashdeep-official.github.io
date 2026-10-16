@@ -5,7 +5,7 @@ const PROFILE = {
   name: "Yashdeep Singh Yash",
   email: "y.yashjagait@gmail.com",
   linkedin: "https://www.linkedin.com/in/yashdeep-singh-363a53387/",
-  github: "https://github.com/Yashdeep-official",
+  github: "https://github.com/yourname",
   location: "Calgary, AB",
   // Visitor analytics: sign up free at goatcounter.com, then put your code here (e.g. "yash").
   // Leave empty to turn analytics off.
@@ -58,11 +58,20 @@ const PROJECTS = [
 ];
 
 const EXPERIENCE = [
-  { when:"20XX — Present", title:"Junior Security Developer", org:"Company Name", type:"Work",
-    text:"Build internal tooling, lead secure code reviews and help teams remediate vulnerabilities — reducing findings by 60%." },
-  { when:"20XX — 20XX", title:"Cybersecurity Degree", org:"SAIT — Southern Alberta Institute of Technology", type:"Education",
+  { when:"Dec 2024 — Present", title:"Full-Stack Developer", org:"WebEquator · Remote", type:"Work",
+    points:[
+      "Build and maintain custom full-stack web applications using Angular, TypeScript, Node.js and Python to execute complex business logic and client workflows.",
+      "Design, develop and integrate secure RESTful APIs and middleware that connect web applications to third-party platforms, databases and e-commerce services.",
+      "Model and manage relational databases (SQL/PostgreSQL) and write efficient queries to support application state, user data and backend storage needs.",
+      "Translate Figma designs into responsive, cross-browser frontend interfaces using modern HTML5, CSS3 and modular Angular components.",
+      "Collaborate with cross-functional teams in daily Agile stand-ups and code reviews to debug production issues and deliver features on schedule.",
+      "Manage code deployments and versioning with Git, using feature-branching strategies and assisting with CI/CD build pipelines."
+    ] },
+  { when:"Oct 15, 2026", title:"POS System Restoration — Freelance Service Call", org:"Fatburger · Calgary, AB", type:"Freelance",
+    text:"Diagnosed and restored the restaurant's point-of-sale system after an outage — performed a full software update and clean reinstall of the POS platform, then verified the complete order and payment workflow to bring the store back online with minimal downtime." },
+  { when:"", title:"Cybersecurity Degree", org:"SAIT — Southern Alberta Institute of Technology", type:"Education",
     text:"Network security, digital forensics, applied cryptography, ethical hacking and incident response." },
-  { when:"20XX — 20XX", title:"Software Development Diploma", org:"SAIT — Southern Alberta Institute of Technology", type:"Education",
+  { when:"", title:"Software Development Diploma", org:"SAIT — Southern Alberta Institute of Technology", type:"Education",
     text:"Full-stack development, object-oriented programming, databases, mobile apps and an agile capstone project." }
 ];
 
@@ -114,7 +123,9 @@ $$(".filter").forEach(b => b.addEventListener("click", () => {
 
 $("#xp").innerHTML = EXPERIENCE.map(x => `
   <li class="reveal"><span class="when">${x.when}</span>
-    <div><h3>${x.title}</h3><p class="org">${x.org}</p><p>${x.text}</p></div>
+    <div><h3>${x.title}</h3><p class="org">${x.org}</p>
+    ${x.points ? `<ul class="xp-list">${x.points.map(p => `<li>${p}</li>`).join("")}</ul>` : `<p>${x.text}</p>`}
+    </div>
     <span class="type">${x.type}</span></li>`).join("");
 
 $("#yr").textContent = new Date().getFullYear();
